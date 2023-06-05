@@ -5,56 +5,56 @@
 	<title>Native HTML accordion with details and summary</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-      details {
-          border-radius: 4px;
-          padding: 0.5em 0.5em 0;
-					background-color: aqua;
-					border: none;
-      }
+	details {
+		border-radius: 4px;
+		padding: 0.5em 0.5em 0;
+		background-color: aqua;
+		border: none;
+	}
 
-      summary {
-          font-weight: bold;
-          margin: -0.5em -0.5em 0;
-          padding: 0.5em;
-					cursor: pointer;
-					background-color: aquamarine;
-      }
+	summary {
+		font-weight: bold;
+		margin: -0.5em -0.5em 0;
+		padding: 0.5em;
+		cursor: pointer;
+		background-color: aquamarine;
+	}
 
-      details[open] {
-          padding: 0.5em;
-      }
+	details[open] {
+		padding: 0.5em;
+	}
 
-      details[open] summary {
-          border-bottom: 1px solid #aaa;
-          margin-bottom: 0.5em;
-      }
+	details[open] summary {
+		border-bottom: 1px solid #aaa;
+		margin-bottom: 0.5em;
+	}
 
-			.parent {
-					width: 300px;
-			}
+	.parent {
+		width: 300px;
+	}
 
 	</style>
 	<script type="module">
-		const shouldClose = document.querySelector("#closePreviousOpened");
-    const detailsList = [...document.querySelectorAll("details")];
+	const shouldClose = document.querySelector("#closePreviousOpened");
+	const detailsList = [...document.querySelectorAll("details")];
 
-    detailsList.forEach(details => details.addEventListener("click", e => {
-      if (!shouldClose.checked || e.target.open) {
-        return;
+	detailsList.forEach(details => details.addEventListener("click", e => {
+		if (!shouldClose.checked || e.target.open) {
+			return;
+		}
+		detailsList.forEach(el => {
+			if (el === e.currentTarget) {
+				return;
 			}
-      detailsList.forEach(el => {
-        if (el === e.currentTarget) {
-          return;
-				}
-        el.open = false;
-			});
-		}));
+			el.open = false;
+		});
+	}));
 	</script>
 </head>
 <body>
 <main>
 	<h1>Native HTML accordion with details and summary</h1>
-	<a href="https://github.com/radek-anuszewski/html-native-accordion" target="_blank">Check source code on Github</a><br><br>
+	<a href="https://github.com/radek-anuszewski/html-native-accordion" target="_blank" rel="noopener noreferrer">Check source code on Github</a><br><br>
 	<label for="closePreviousOpened">Close previous opened? <input id="closePreviousOpened" type="checkbox"></label>
 	<div class="parent">
 		<details>
